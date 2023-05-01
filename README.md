@@ -11,8 +11,11 @@ NOTA!!!!: Depues de configurada la base de datos es necesario podener a correr e
 
 ![image](https://user-images.githubusercontent.com/114323630/235480259-7dc34060-47a5-44fe-8376-fa5b2cabbc9b.png)
 
-NOTA!!!: Cuando el proyecto haya iniciado sin ningún problema las tablas debieron ser creadas en la basde de datos automaticamente en la base de datos que fue conectada y estara lista para introducir los scripts puesto dentro del proyectos, los que esta denominados con el nombre de (Inputs para poblar DB.txt),
+NOTA!!!: Cuando el proyecto haya iniciado sin ningún problema las tablas debieron ser creadas en la basde de datos automaticamente en la base de datos que fue conectada y estara lista para introducir los scripts puesto dentro del proyectos, el archivo .txt que esta denominado con el nombre de (Inputs para poblar DB.txt).
 
+![image](https://user-images.githubusercontent.com/114323630/235481920-811996e4-07f1-446d-87e4-3d426f1f0ed9.png)
+
+Depues de agregar los scripts en la base de datos es necesario seleccionarlos todos para poder introducirlos en las tablas, y depues escribir el comando "commit;" para que los datos se vean reflejados inmenditamente en el aplicativo.
 
 Cuando la aplicación esté en ejecución y se desee inicializarla con algún botón, se redirigirá al usuario a la pantalla de inicio de sesión.
 
@@ -39,7 +42,7 @@ En el cual se puede acceder con dos roles, el rol de "admin" cuya clave es: 123 
 5) Con el botón 5 podemos listar los alumnos, cursos y profesores.
 6) Con el botón barra de busqueda 6 sirve para realizar busquedas de cualquier tipo en las listas de alumnos, cursos y profesores.
 7) Con el boton 7 se le da la orden de buscar los caracteres ingresados en el botón 6.
-8) COn el botón 8 podemos regresar la lista como estaba antes, cuando hayamos terminado de buscar.
+8) Con el botón 8 podemos regresar la lista como estaba antes, cuando hayamos terminado de buscar.
 
 -La siguiente vista se carga cuando el boton "Listar" es presionado y despliega una lista dependiendo de lo que se le haya indicado listar (alumnos, profesores o cursos)
 
