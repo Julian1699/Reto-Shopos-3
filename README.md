@@ -11,7 +11,7 @@ NOTA: Después de configurada la base de datos, es necesario poner a correr el p
 
 ![image](https://user-images.githubusercontent.com/114323630/235480259-7dc34060-47a5-44fe-8376-fa5b2cabbc9b.png)
 
-NOTA: Cuando el proyecto haya iniciado sin ningún problema, las tablas deberían ser creadas automáticamente en la base de datos a la que se conectó, y estarán listas para introducir los scripts dentro del proyecto en el archivo .txt que está denominado con el nombre de "Inputs para poblar DB.txt".
+NOTA: Cuando el proyecto haya iniciado sin ningún problema, las tablas deberían ser creadas automáticamente en la base de datos a la que se conectó, y estarán listas para introducir los scripts que se encuentran dentro del proyecto, en un archivo .txt que está denominado con el nombre de "Inputs para poblar DB.txt".
 
 ![image](https://user-images.githubusercontent.com/114323630/235481920-811996e4-07f1-446d-87e4-3d426f1f0ed9.png)
 
