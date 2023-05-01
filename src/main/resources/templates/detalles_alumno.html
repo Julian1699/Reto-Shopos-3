@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header text-center" th:text="${titulo}">
+			</div>
+			<div class="card-body text-center">
+				<ul class="list-group text-center">
+					<li class="list-group-item active" th:text="${' Nombre del Alumno: ' + alumno.nombre}"></li>
+					<li class="list-group-item" th:text="${' Nombre de la Facultad: ' + alumno.facultad}"></li>
+					<li class="list-group-item" th:text="${' Curso actual del alumno: ' + alumno.curso}"></li>
+					<li class="list-group-item" th:if="${alumno.curso == profesor.nombre_curso}" th:text="${'Nombre del profesor: ' + profesor.nombre}"></li>
+					<li class="list-group-item" th:text="${' Semestre del alumno: ' + alumno.semestre}"></li>
+					<li class="list-group-item" th:text="${' Creditos inscritos: ' + alumno.creditosInscritos}"></li>	
+				</ul>
+				<div>
+					&nbsp;&nbsp;
+				</div>
+				<a type="submit" class="btn btn-secondary mb-2" href="/listar_alumno">Volver</a>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+</html>

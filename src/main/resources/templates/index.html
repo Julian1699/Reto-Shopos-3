@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+xmls:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+
+<head th:replace="layout/layout :: head">
+	<meta charset="utf-8">
+	<title>Universidad Sophos</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #770080;">
+		<a class="navbar-brand" href="/">Universidad Sophos</a>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link">Bienvenido [[${#httpServletRequest.remoteUser}]]
+					</a>
+				</li>
+			 </ul>
+			<form class="d-flex" th:action="@{/logout}" method="post">
+				<input class="btn btn-secondary" type="submit" value="Cerrar sesión" />
+			 </form>
+	</nav>
+
+	<div class="container">
+		<div th:if="${success != null}"
+			class="alert alert-primary alert-dismissible fade show">
+			[[${success}]]>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</div>
+
+	<div class="container">
+		<div th:if="${error != null}"
+			class="alert alert-danger alert-dismissible fade show">
+			[[${error}]]>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</div>
+
+	<div class="container">
+		<div th:if="${warning != null}"
+			class="alert alert-warning alert-dismissible fade show">
+			[[${warning}]]>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</div>
+
+	<div class="container">
+		<div th:if="${info != null}"
+			class="alert alert-info alert-dismissible fade show">
+			[[${info}]]>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</div>
+
+
+	<!-- A PARTIR DE ESTA LINEA DE CODIGO SE INTRODUCE TODO LO REFERENTE A ALUMNOS. -->
+
+
+	<br>
+	<div class="container text-center">
+		<div class="d-flex justify-content-center">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="btn btn-primary" href="/nuevo_alumno">Agregar Alumno</a>
+					&nbsp;&nbsp;
+					<a class="btn btn-info" href="/listar_alumno">Listar Alumnos</a></li>
+			</ul>
+			
+		<FORM class = "form-inline" th:action = "@{/listar_alumno}">
+			<div class = "form-group mb-2">
+				<label>Filtrar : </label>
+			</div>
+			<div class = "form-group mx-sm-3 mb-2">
+				<input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}" placeholder="Digite el valor a buscar" required>
+			</div>
+			<input type="submit" class = "btn btn-info mb-2" value="Buscar">
+			&nbsp;&nbsp;
+			<a type="submit" class= "btn btn-secondary mb-2" href="/listar_alumno">Limpiar</a>
+		</form>
+		</div>
+		
+		<br>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Facultad</th>
+					<th scope="col">Curso</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="alumno : ${listaAlumnos} ">
+					<td th:text="${alumno.id}"></td>
+					<td th:text="${alumno.nombre}"></td>
+					<td th:text="${alumno.facultad}"></td>
+					<td th:text="${alumno.curso}"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{'/editar_alumno/'+${alumno.id}}"sec:authorize="hasRole('ADMIN')">Editar</a>
+						&nbsp;
+						<a class="btn btn-info" th:href="@{'/detalles_alumno/'+${alumno.id}}">Detalles</a>
+						&nbsp;
+						<a class="btn btn-danger" th:href="@{'/eliminar_alumno/'+${alumno.id}}" sec:authorize="hasRole('ADMIN')"onclick="return confirm('¿Seguro querés eliminar esto?');">Eliminar</a>
+						&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- A PARTIR DE ESTA LINEA DE CODIGO SE INTRODUCE TODO LO REFERENTE A CURSOS. -->
+
+	<br>
+	<div class="container text-center">
+		<div class="d-flex justify-content-center">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="btn btn-primary" href="/nuevo_curso">Agregar Curso</a>
+					&nbsp;&nbsp;
+					<a class="btn btn-info" href="/listar_curso">Listar Cursos</a></li>
+			</ul>
+			
+		<FORM class = "form-inline" th:action = "@{/listar_curso}">
+			<div class = "form-group mb-2">
+				<label>Filtrar : </label>
+			</div>
+			<div class = "form-group mx-sm-3 mb-2">
+				<input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}" placeholder="Digite el valor a buscar" required>
+			</div>
+			<input type="submit" class = "btn btn-info mb-2" value="Buscar">
+			&nbsp;&nbsp;
+			<a type="submit" class= "btn btn-secondary mb-2" href="/listar_curso">Limpiar</a>
+		</form>
+		</div>
+		
+		<br>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Facultad</th>
+					<th scope="col">Creditos</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="curso : ${listaCursos} ">
+					<td th:text="${curso.id}"></td>
+					<td th:text="${curso.nombre}"></td>
+					<td th:text="${curso.facultad}"></td>
+					<td th:text="${curso.creditos}"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{'/editar_curso/'+${curso.id}}" sec:authorize="hasRole('ADMIN')">Editar</a>
+						&nbsp;
+						<a class="btn btn-info" th:href="@{'/detalles_curso/'+${curso.id}}">Detalles</a>
+						&nbsp;
+						<a class="btn btn-danger" th:href="@{'/eliminar_curso/'+${curso.id}}" sec:authorize="hasRole('ADMIN')"onclick="return confirm('¿Seguro querés eliminar esto?');">Eliminar</a>
+						&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- A PARTIR DE ESTA LINEA DE CODIGO SE INTRODUCE TODO LO REFERENTE A PROFESORES. -->
+
+	<br>
+	<div class="container text-center">
+		<div class="d-flex justify-content-center">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="btn btn-primary" href="/nuevo_profesor">Agregar Profesor</a>
+					&nbsp;&nbsp;
+					<a class="btn btn-info" href="/listar_profesor">Listar Profesores</a></li>
+			</ul>
+			
+		<FORM class = "form-inline" th:action = "@{/listar_profesor}">
+			<div class = "form-group mb-2">
+				<label>Filtrar : </label>
+			</div>
+			<div class = "form-group mx-sm-3 mb-2">
+				<input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}" placeholder="Digite el valor a buscar" required>
+			</div>
+			<input type="submit" class = "btn btn-info mb-2" value="Buscar">
+			&nbsp;&nbsp;
+			<a type="submit" class= "btn btn-secondary mb-2" href="/listar_profesor">Limpiar</a>
+		</form>
+		</div>
+		
+		<br>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Facultad</th>
+					<th scope="col">Nombre del curso</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="profesor : ${listaProfesors} ">
+					<td th:text="${profesor.id}"></td>
+					<td th:text="${profesor.nombre}"></td>
+					<td th:text="${profesor.facultad}"></td>
+					<td th:text="${profesor.nombre_curso}"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{'/editar_profesor/'+${profesor.id}}"sec:authorize="hasRole('ADMIN')">Editar</a>
+						&nbsp;
+						<a class="btn btn-info" th:href="@{'/detalles_profesor/'+${profesor.id}}">Detalles</a>
+						&nbsp;
+						<a class="btn btn-danger" th:href="@{'/eliminar_profesor/'+${profesor.id}}" sec:authorize="hasRole('ADMIN')"onclick="return confirm('¿Seguro querés eliminar esto?');">Eliminar</a>
+						&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+<!-- HASTA AQUÍ SE TRABAJA LOS BOTONES CON LOS QUE INTERACTUA EL USUARIO. -->
+
+
+<footer th:fragment="footer">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</footer>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+</html>

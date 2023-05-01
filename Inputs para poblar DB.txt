@@ -1,0 +1,114 @@
+select * from alumnos;
+select * from profesores;
+select * from cursos;
+----------------------------
+commit;
+----------------------------
+
+--CURSOS
+--MEDICINA
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Anatomía Humana', 4, 30, 'Medicina');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Fisiología Humana', 4, 30, 'Medicina');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Pediatría', 5, 25, 'Medicina');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Neurología', 4, 30, 'Medicina');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Dermatología', 4, 30, 'Medicina');
+--DERECHO
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Derecho Civil', 4, 30, 'Derecho');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Derecho Penal', 4, 30, 'Derecho');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Derecho Internacional', 5, 25, 'Derecho');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Derecho Laboral', 4, 30, 'Derecho');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Derecho Mercantil', 4, 30, 'Derecho');
+--INGENIERÍA
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Cálculo Integral', 3, 40, 'Ingeniería');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Cálculo Vectorial', 3, 40, 'Ingeniería');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Física Clásica', 4, 30, 'Ingeniería');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Algoritmos y Estructuras de Datos', 4, 30, 'Ingeniería');
+INSERT INTO cursos (NOMBRE_CURSO, CREDITOS, CUPOS, FACULTAD) 
+VALUES ('Ingeniería de Software', 5, 25, 'Ingeniería');
+
+--PROFESORES
+-- MEDICINA
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Juan Pérez', 'Doctor en Medicina', 10, 'Medicina', 'Anatomía Humana');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('María Gómez', 'Doctor en Medicina', 8, 'Medicina', 'Fisiología Humana');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Luis García', 'Doctor en Medicina', 15, 'Medicina', 'Pediatría');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Ana Ramírez', 'Doctor en Medicina', 12, 'Medicina', 'Neurología');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Carlos Torres', 'Doctor en Medicina', 6, 'Medicina', 'Dermatología');
+-- DERECHO
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Marta Pérez', 'Doctor en Derecho', 10, 'Derecho', 'Derecho Civil');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Pedro Gómez', 'Doctor en Derecho', 8, 'Derecho', 'Derecho Penal');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Lorena García', 'Doctor en Derecho', 15, 'Derecho', 'Derecho Internacional');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Sergio Ramírez', 'Doctor en Derecho', 12, 'Derecho', 'Derecho Laboral');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO)
+VALUES ('Laura Torres', 'Doctor en Derecho', 6, 'Derecho', 'Derecho Mercantil');
+--INGENIERÍA
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO) 
+VALUES ('Juan Pérez', 'Doctorado en Ingeniería', 10, 'Ingeniería', 'Cálculo Integral');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO) 
+VALUES ('María Gómez', 'Maestría en Ingeniería', 5, 'Ingeniería', 'Cálculo Vectorial');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO) 
+VALUES ('Pedro López', 'Doctorado en Física', 7, 'Ingeniería', 'Física Clásica');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO) 
+VALUES ('Ana Torres', 'Maestría en Ciencias de la Computación', 3, 'Ingeniería', 'Algoritmos y Estructuras de Datos');
+INSERT INTO profesores (NOMBRE_PROFESOR, TITULO_ACADEMICO, ANOS_EXPERIENCIA, FACULTAD, NOMBRE_CURSO) 
+VALUES ('Luisa García', 'Doctorado en Ingeniería de Software', 6, 'Ingeniería', 'Ingeniería de Software');
+
+--ALUMNOS
+-- MEDICINA
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('María González', 'Medicina', 'Anatomía Humana', 2, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Jorge Pérez', 'Medicina', 'Fisiología Humana', 2, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Ana Torres', 'Medicina', 'Pediatría', 4, 5);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Roberto Rodríguez', 'Medicina', 'Neurología', 6, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Lucía Martínez', 'Medicina', 'Dermatología', 6, 4);
+
+-- DERECHO
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Luisa Gómez', 'Derecho', 'Derecho Civil', 2, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Juan Pérez', 'Derecho', 'Derecho Penal', 4, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Andrés Torres', 'Derecho', 'Derecho Internacional', 6, 5);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Marta Rodríguez', 'Derecho', 'Derecho Laboral', 6, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Ana Martínez', 'Derecho', 'Derecho Mercantil', 8, 4);
+
+-- INGENIERÍA
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Juan Perez', 'Ingeniería', 'Cálculo Integral', 3, 3);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Maria Rodriguez', 'Ingeniería', 'Cálculo Vectorial', 3, 3);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Pedro Gomez', 'Ingeniería', 'Física Clásica', 3, 3);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Ana Garcia', 'Ingeniería', 'Algoritmos y Estructuras de Datos', 4, 4);
+INSERT INTO alumnos (NOMBRE_ALUMNO, FACULTAD, NOMBRE_CURSO, SEMESTRE, CREDITOS_INSCRITOS)
+VALUES ('Luis Hernandez', 'Ingeniería', 'Ingeniería de Software', 4, 4);
+

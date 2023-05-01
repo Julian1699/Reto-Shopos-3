@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Registrar Curso</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #770080;">
+		<a class="navbar-brand" href="/">Universidad Sophos</a>
+	</nav>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Registro de Curso</h1>
+				<div class="card-body">
+					<form th:action="@{/guardar_curso}" th:object="${curso}" method="post">
+						<div class="form-group">
+							<label>Nombre :</label>
+							<input type="text" name="nombre" th:field="*{nombre}" class="form-control"
+								placeholder="Digite el nombre del curso" required>
+						</div>
+						<div class="form-group">
+							<label>Creditos :</label>
+							<input type="text" name="creditos" th:field="*{creditos}" class="form-control"
+								placeholder="Digite los creditos del curso" required>
+						</div>
+						<div class="form-group">
+							<label>Cupos :</label>
+							<input type="text" name="cupos" th:field="*{cupos}"
+								class="form-control" placeholder="Digite los cupos del curso" required>
+						</div>
+						<div class="form-group">
+							<label>Facultad :</label>
+							<input type="text" name="facultad" th:field="*{facultad}"
+								class="form-control" placeholder="Digite la facultad del curso" required>
+						</div>
+						<div class="box-footer">
+							<button class="btn btn-success">Guardar</button>
+							&nbsp;&nbsp;
+							<a class="btn btn-secondary" href="/listar_curso">Volver</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
